@@ -555,10 +555,25 @@
 <!-- ITINERARY -->
 <div class="section-wrap bg-cream">
 <div class="section-inner">
-  <div class="section-label">Ang Programa</div>
-  <h2 class="section-title">Itinerary ng Grupo</h2>
-
-  <div class="day-header">🌙 Saturday — Pico De Loro Day 1</div>
+  <h2 class="section-title">Itinerary</h2>
+  
+  <div class="day-header">🚗  Friday — Pico De Loro Day 1</div>
+  <table class="itinerary-table">
+    <thead><tr><th>Start</th><th>End</th><th style="text-align:center">Duration</th><th>Activity</th><th>Remarks</th></tr></thead>
+    <tbody>
+      <tr><td class="td-time">10:00 AM</td><td class="td-time">1:00 PM</td><td class="td-dur">3 hrs</td><td class="td-activity">🚗 Travel from Manila to Pico De Loro</td><td class="td-remark">—</td></tr>
+      <tr><td class="td-time">1:00 PM</td><td class="td-time">2:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🍽 Lunch at one of the restaurants in the resort</td><td class="td-remark"><a href="#" class="remark-link">🗺 Resort Map</a> <a href="#" class="remark-link">🏄 Water Activities</a></td></tr>
+      <tr><td class="td-time">2:00 PM</td><td class="td-time">2:30 PM</td><td class="td-dur">30 min</td><td class="td-activity">🏠 Check in and chill in the Airbnb</td><td class="td-remark"><span class="price-pill">₱1,400 / person</span></td></tr>
+      <tr><td class="td-time">2:30 PM</td><td class="td-time">5:00 PM</td><td class="td-dur">2.5 hrs</td><td class="td-activity">🏖 Stroll around the resort and swim</td><td class="td-remark"><a href="#" class="remark-link">🗺 Resort Map</a> <a href="#" class="remark-link">🏄 Water Activities</a></td></tr>
+      <tr><td class="td-time">5:00 PM</td><td class="td-time">6:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🌅 Chill and watch the sunset by the beach</td><td class="td-remark">—</td></tr>
+      <tr><td class="td-time">6:00 PM</td><td class="td-time">7:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🚿 Shower</td><td class="td-remark">—</td></tr>
+      <tr><td class="td-time">7:00 PM</td><td class="td-time">8:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🍜 Dinner at one of the restaurants in the resort<div class="activity-or">or cook and eat dinner at the Airbnb</div></td><td class="td-remark"><a href="#" class="remark-link">🍽 Resort Restaurants</a></td></tr>
+      <tr><td class="td-time">8:00 PM</td><td class="td-time">10:00 PM</td><td class="td-dur">2 hrs</td><td class="td-activity">🎱 Indoor resort activities</td><td class="td-remark"><a href="#" class="remark-link">🎮 Indoor Activities</a></td></tr>
+      <tr><td class="td-time">10:00 PM</td><td class="td-time">—</td><td class="td-dur">—</td><td class="td-activity">😴 Chill in the Airbnb</td><td class="td-remark">—</td></tr>
+    </tbody>
+  </table>
+  
+  <div class="day-header">🏖 Saturday — Pico De Loro Day 2</div>
   <table class="itinerary-table">
     <thead><tr><th>Start</th><th>End</th><th style="text-align:center">Duration</th><th>Activity</th><th>Remarks</th></tr></thead>
     <tbody>
@@ -574,7 +589,7 @@
     </tbody>
   </table>
 
-  <div class="day-header" style="margin-top:2.5rem">☀️ Sunday — Pico De Loro Day 2</div>
+  <div class="day-header" style="margin-top:2.5rem">🧳 Sunday — Pico De Loro Day 3</div>
   <table class="itinerary-table">
     <thead><tr><th>Start</th><th>End</th><th style="text-align:center">Duration</th><th>Activity</th><th>Remarks</th></tr></thead>
     <tbody>
@@ -639,12 +654,12 @@
   <div class="section-label" style="justify-content:center;">Few More Days to Go-Go-GO!</div>
   <h2 class="section-title" style="margin-bottom:2.5rem;">Countdown Until Vacation 🎉</h2>
   <div class="countdown-grid">
-    <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><div class="countdown-label">Araw</div></div>
-    <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><div class="countdown-label">Oras</div></div>
-    <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><div class="countdown-label">Minuto</div></div>
-    <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><div class="countdown-label">Segundo</div></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><div class="countdown-label">Days</div></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><div class="countdown-label">Hours</div></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><div class="countdown-label">Minutes</div></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><div class="countdown-label">Seconds</div></div>
   </div>
-  <p style="margin-top:1.8rem;font-size:0.82rem;font-weight:700;color:var(--navy-dark);opacity:0.5;letter-spacing:1px;">— I-update ang target date sa code —</p>
+  <p style="margin-top:1.8rem;font-size:0.82rem;font-weight:700;color:var(--navy-dark);opacity:0.5;letter-spacing:1px;">— Don't forget to add this to your calendar! —</p>
 </div>
 </div>
 
@@ -673,18 +688,18 @@
 
 <script>
 const airbnbs = [
-  {id:1, name:"Santorini",      price:6312, rating:4.8, capacity:10, emoji:"🏛️", bg:"#E8F0FF", amenities:["Pool","WiFi","AC","Kitchen","Parking","Sea View"],           url:"https://www.airbnb.com"},
-  {id:2, name:"Luxurious",      price:6173, rating:4.9, capacity:12, emoji:"💎", bg:"#FFF8E0", amenities:["Private Pool","WiFi","AC","Full Kitchen","BBQ","Garden"],     url:"https://www.airbnb.com"},
-  {id:3, name:"Modern",         price:4632, rating:4.7, capacity:8,  emoji:"🏠", bg:"#F0F0FF", amenities:["Pool","WiFi","AC","Kitchen","Smart TV"],                     url:"https://www.airbnb.com"},
-  {id:4, name:"Carola",         price:4865, rating:4.6, capacity:10, emoji:"🌴", bg:"#E8FFF0", amenities:["Pool","WiFi","AC","Kitchen","Beach Access"],                  url:"https://www.airbnb.com"},
-  {id:5, name:"Mountain",       price:4326, rating:4.5, capacity:8,  emoji:"⛰️", bg:"#F0F8FF", amenities:["WiFi","AC","Kitchen","Mountain View","Hiking"],              url:"https://www.airbnb.com"},
-  {id:6, name:"Yayo",           price:4633, rating:4.7, capacity:9,  emoji:"🌺", bg:"#FFF0F8", amenities:["Pool","WiFi","AC","Kitchen","Garden"],                       url:"https://www.airbnb.com"},
-  {id:7, name:"Large",          price:4170, rating:4.4, capacity:16, emoji:"🏡", bg:"#F0FFF4", amenities:["Pool","WiFi","AC","Large Kitchen","Multiple Rooms","Parking"],url:"https://www.airbnb.com"},
-  {id:8, name:"Mountain Suite", price:5900, rating:4.8, capacity:10, emoji:"🗻", bg:"#EEF4FF", amenities:["WiFi","AC","Kitchen","Suite Rooms","Scenic View","Parking"],  url:"https://www.airbnb.com"},
-  {id:9, name:"Miranda 319",    price:6602, rating:4.9, capacity:12, emoji:"🌊", bg:"#E8F8FF", amenities:["Pool","WiFi","AC","Full Kitchen","Sea View","Balcony"],       url:"https://www.airbnb.com"},
-  {id:10,name:"Other Miranda",  price:6254, rating:4.8, capacity:10, emoji:"🏖️", bg:"#FFFBEE", amenities:["Pool","WiFi","AC","Kitchen","Beach View","Parking"],         url:"https://www.airbnb.com"},
-  {id:11,name:"Sea You",        price:6009, rating:4.7, capacity:10, emoji:"🐚", bg:"#EEFFFC", amenities:["Pool","WiFi","AC","Kitchen","Ocean View","BBQ"],              url:"https://www.airbnb.com"},
-  {id:12,name:"Miranda A",      price:5502, rating:4.6, capacity:10, emoji:"🌅", bg:"#FFF5EE", amenities:["Pool","WiFi","AC","Kitchen","Sunset View"],                   url:"https://www.airbnb.com"},
+  {id:1, name:"Santorini",      price:6312, rating:4.8, capacity:10, emoji:"🏛️", bg:"#E8F0FF", amenities:["Pool","WiFi","AC","Kitchen","Parking","Sea View"],           url:"https://www.airbnb.com/rooms/837111618329904055?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775979399_P3uY0Rb74VrUUUf-&previous_page_section_name=1000&federated_search_id=084da10e-afbc-4972-a836-e083925f2dba"},
+  {id:2, name:"Luxurious",      price:6173, rating:4.9, capacity:12, emoji:"💎", bg:"#FFF8E0", amenities:["Private Pool","WiFi","AC","Full Kitchen","BBQ","Garden"],     url:"https://www.airbnb.com/rooms/16444897?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775979400_P3scDaXE3avR6aFT&previous_page_section_name=1000&federated_search_id=084da10e-afbc-4972-a836-e083925f2dba"},
+  {id:3, name:"Modern",         price:4632, rating:4.7, capacity:8,  emoji:"🏠", bg:"#F0F0FF", amenities:["Pool","WiFi","AC","Kitchen","Smart TV"],                     url:"https://www.airbnb.com/rooms/1300392676385214456?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775979399_P32pL2hOJUq50CTD&previous_page_section_name=1000&federated_search_id=084da10e-afbc-4972-a836-e083925f2dba"},
+  {id:4, name:"Carola",         price:4865, rating:4.6, capacity:10, emoji:"🌴", bg:"#E8FFF0", amenities:["Pool","WiFi","AC","Kitchen","Beach Access"],                  url:"https://www.airbnb.com/rooms/24957804?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775979400_P3zWczoSH7_gF6oA&previous_page_section_name=1000&federated_search_id=084da10e-afbc-4972-a836-e083925f2dba"},
+  {id:5, name:"Mountain",       price:4326, rating:4.5, capacity:8,  emoji:"⛰️", bg:"#F0F8FF", amenities:["WiFi","AC","Kitchen","Mountain View","Hiking"],              url:"https://www.airbnb.com/rooms/13819753?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775979400_P3GGPcHGt8FqaQ02&previous_page_section_name=1000&federated_search_id=084da10e-afbc-4972-a836-e083925f2dba"},
+  {id:6, name:"Yayo",           price:4633, rating:4.7, capacity:9,  emoji:"🌺", bg:"#FFF0F8", amenities:["Pool","WiFi","AC","Kitchen","Garden"],                       url:"https://www.airbnb.com/rooms/1217313007853231294?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775979400_P3asqzorH8QKgbvm&previous_page_section_name=1000&federated_search_id=084da10e-afbc-4972-a836-e083925f2dba"},
+  {id:7, name:"Large",          price:4170, rating:4.4, capacity:16, emoji:"🏡", bg:"#F0FFF4", amenities:["Pool","WiFi","AC","Large Kitchen","Multiple Rooms","Parking"],url:"https://www.airbnb.com/rooms/28530466?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775979400_P35jAsDPg7Jd2JcN&previous_page_section_name=1000&federated_search_id=084da10e-afbc-4972-a836-e083925f2dba"},
+  {id:8, name:"Mountain Suite", price:5900, rating:4.8, capacity:10, emoji:"🗻", bg:"#EEF4FF", amenities:["WiFi","AC","Kitchen","Suite Rooms","Scenic View","Parking"],  url:"https://www.airbnb.com/rooms/1555695532659314341?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775985806_P3E_1-MXfeFK5Bqu&previous_page_section_name=1000&federated_search_id=61af7c9d-e66e-4466-a98d-b06b7ca287ad"},
+  {id:9, name:"Miranda 319",    price:6602, rating:4.9, capacity:12, emoji:"🌊", bg:"#E8F8FF", amenities:["Pool","WiFi","AC","Full Kitchen","Sea View","Balcony"],       url:"https://www.airbnb.com/rooms/53392611?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775985806_P3AmZoyTtHj63J1f&previous_page_section_name=1000&federated_search_id=61af7c9d-e66e-4466-a98d-b06b7ca287ad"},
+  {id:10,name:"Other Miranda",  price:6254, rating:4.8, capacity:10, emoji:"🏖️", bg:"#FFFBEE", amenities:["Pool","WiFi","AC","Kitchen","Beach View","Parking"],         url:"https://www.airbnb.com/rooms/1321492985168941738?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775985807_P3Tg18nRG5e15ca0&previous_page_section_name=1000&federated_search_id=61af7c9d-e66e-4466-a98d-b06b7ca287ad"},
+  {id:11,name:"Sea You",        price:6009, rating:4.7, capacity:10, emoji:"🐚", bg:"#EEFFFC", amenities:["Pool","WiFi","AC","Kitchen","Ocean View","BBQ"],              url:"https://www.airbnb.com/rooms/963471308690548749?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775986238_P32u7jWwr_IrvM0G&previous_page_section_name=1000&federated_search_id=ffb2ee7f-d060-41b6-839b-4526c51a315b"},
+  {id:12,name:"Miranda A",      price:5502, rating:4.6, capacity:10, emoji:"🌅", bg:"#FFF5EE", amenities:["Pool","WiFi","AC","Kitchen","Sunset View"],                   url:"https://www.airbnb.com/rooms/745083615949903507?adults=5&check_in=2026-04-29&check_out=2026-04-30&search_mode=regular_search&source_impression_id=p3_1775986238_P3Ma0J_0-90vCRHz&previous_page_section_name=1000&federated_search_id=ffb2ee7f-d060-41b6-839b-4526c51a315b"},
 ];
 
 function buildCards(){
