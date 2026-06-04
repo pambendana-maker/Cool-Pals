@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cool Pals — Bahay ni Kuya</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F5C200;
+    --yellow-light: #FFD94A;
+    --yellow-dark: #D9A800;
+    --navy: #1A2E6E;
+    --navy-dark: #0F1D50;
+    --navy-light: #2A4494;
+    --white: #FFFFFF;
+    --cream: #FFFBEF;
+    --sky: #E8F0FF;
+    --text: #1A2E6E;
+    --text-muted: #6070A0;
+    --shadow: rgba(26,46,110,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-rays {
+    position: absolute; inset: 0;
+    background: conic-gradient(
+      from 0deg at 50% 60%,
+      rgba(245,194,0,0.07) 0deg, rgba(245,194,0,0) 15deg,
+      rgba(245,194,0,0.07) 30deg, rgba(245,194,0,0) 45deg,
+      rgba(245,194,0,0.07) 60deg, rgba(245,194,0,0) 75deg,
+      rgba(245,194,0,0.07) 90deg, rgba(245,194,0,0) 105deg,
+      rgba(245,194,0,0.07) 120deg, rgba(245,194,0,0) 135deg,
+      rgba(245,194,0,0.07) 150deg, rgba(245,194,0,0) 165deg,
+      rgba(245,194,0,0.07) 180deg, rgba(245,194,0,0) 195deg,
+      rgba(245,194,0,0.07) 210deg, rgba(245,194,0,0) 225deg,
+      rgba(245,194,0,0.07) 240deg, rgba(245,194,0,0) 255deg,
+      rgba(245,194,0,0.07) 270deg, rgba(245,194,0,0) 285deg,
+      rgba(245,194,0,0.07) 300deg, rgba(245,194,0,0) 315deg,
+      rgba(245,194,0,0.07) 330deg, rgba(245,194,0,0) 345deg,
+      rgba(245,194,0,0.07) 360deg
+    );
+    animation: spin-rays 30s linear infinite;
+  }
+  @keyframes spin-rays { to { transform: rotate(360deg); } }
+
+  .hero-house {
+    position: relative; z-index: 2;
+    width: 160px; height: 160px;
+    margin: 0 auto 1.5rem;
+    filter: drop-shadow(0 12px 30px rgba(245,194,0,0.4));
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+  .rec-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #E32B2B; color: white;
+    font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 800;
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 999px;
+    margin-bottom: 1.2rem;
+    position: relative; z-index: 2;
+    box-shadow: 0 4px 16px rgba(227,43,43,0.4);
+  }
+  .rec-dot { width: 8px; height: 8px; background: white; border-radius: 50%; animation: blink 1.2s ease-in-out infinite; }
+  @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+
+  .hero-eyebrow {
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--yellow);
+    position: relative; z-index: 2;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-title {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: clamp(4rem, 14vw, 10rem);
+    line-height: 0.88;
+    color: var(--yellow);
+    position: relative; z-index: 2;
+    text-shadow: 4px 6px 0 var(--yellow-dark), 0 0 60px rgba(245,194,0,0.3);
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-sub {
+    font-family: 'Nunito', sans-serif; font-weight: 700;
+    font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+    color: rgba(255,255,255,0.65);
+    letter-spacing: 2px; text-transform: uppercase;
+    position: relative; z-index: 2;
+  }
+
+  .sparkle {
+    position: absolute; z-index: 3; font-size: 1.4rem;
+    animation: twinkle 2s ease-in-out infinite;
+  }
+  .sparkle:nth-child(1) { top: 18%; left: 12%; animation-delay: 0s; }
+  .sparkle:nth-child(2) { top: 25%; right: 10%; animation-delay: 0.7s; }
+  .sparkle:nth-child(3) { bottom: 28%; left: 8%; animation-delay: 1.2s; font-size: 1rem; }
+  .sparkle:nth-child(4) { bottom: 20%; right: 12%; animation-delay: 0.4s; font-size: 1.8rem; }
+  @keyframes twinkle { 0%,100% { transform: scale(1) rotate(0deg); opacity:1; } 50% { transform: scale(1.3) rotate(20deg); opacity:0.6; } }
+
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: rgba(255,255,255,0.3); font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; z-index: 3;
+  }
+  .scroll-arrow {
+    width: 18px; height: 18px;
+    border-right: 2px solid rgba(255,255,255,0.3);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    transform: rotate(45deg);
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+  @keyframes bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(6px); } }
+
+  /* ===== TAPE ===== */
+  .tape { padding: 12px 0; overflow: hidden; white-space: nowrap; }
+  .tape-inner {
+    display: inline-block; animation: marquee 22s linear infinite;
+    font-family: 'Fredoka One', sans-serif; font-size: 1.05rem; letter-spacing: 3px;
+  }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .tape-yellow { background: var(--yellow); }
+  .tape-yellow .tape-inner { color: var(--navy); }
+  .tape-navy { background: var(--navy); }
+  .tape-navy .tape-inner { color: rgba(255,255,255,0.6); }
+  .tape-white { background: white; border-top: 3px solid var(--yellow); border-bottom: 3px solid var(--yellow); }
+  .tape-white .tape-inner { color: var(--navy); }
+
+  /* ===== SECTIONS ===== */
+  .section-wrap { padding: 5rem 1.5rem; }
+  .section-wrap.bg-white { background: var(--white); }
+  .section-wrap.bg-cream { background: var(--cream); }
+  .section-wrap.bg-sky { background: var(--sky); }
+  .section-wrap.bg-navy { background: var(--navy); }
+  .section-wrap.bg-yellow { background: var(--yellow); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--navy-light); margin-bottom: 0.6rem;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 24px; height: 3px;
+    background: var(--yellow); border-radius: 2px; flex-shrink: 0;
+  }
+  .section-label.light { color: rgba(255,255,255,0.6); }
+
+  .section-title {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--navy); line-height: 1; letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+  }
+  .section-title.light { color: var(--white); }
+  .section-title.yellow { color: var(--yellow); }
+
+  /* ===== HOUSEMATES ===== */
+  .housemates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1.2rem;
+  }
+  .housemate-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    border: 3px solid transparent;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .housemate-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    border-color: var(--yellow);
+    box-shadow: 0 12px 32px rgba(245,194,0,0.3);
+  }
+  .housemate-avatar {
+    width: 100%; aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.2rem; position: relative;
+  }
+  .housemate-info {
+    padding: 0.7rem 0.9rem 0.9rem; background: white;
+    border-top: 3px solid var(--yellow);
+  }
+  .housemate-name {
+    font-family: 'Fredoka One', sans-serif; font-size: 1.05rem;
+    letter-spacing: 0.5px; color: var(--navy); text-transform: uppercase;
+  }
+  .housemate-role {
+    font-size: 0.68rem; font-weight: 700; color: var(--text-muted);
+    letter-spacing: 1px; text-transform: uppercase; margin-top: 1px;
+  }
+  .cam-tag {
+    position: absolute; top: 8px; left: 8px;
+    background: var(--navy); color: white;
+    font-size: 8px; font-weight: 800; letter-spacing: 2px;
+    padding: 3px 8px; border-radius: 999px; text-transform: uppercase;
+  }
+
+  /* ===== ITINERARY ===== */
+  .day-header {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 1.6rem; color: var(--navy);
+    letter-spacing: 1px; margin-bottom: 1rem; margin-top: 2.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 0.7rem 1.2rem;
+    background: var(--yellow); border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(245,194,0,0.3);
+  }
+  .day-header:first-child { margin-top: 0; }
+
+  .itinerary-table {
+    width: 100%; border-collapse: separate; border-spacing: 0;
+    font-size: 0.875rem; background: white; border-radius: 12px;
+    overflow: hidden; box-shadow: 0 4px 20px var(--shadow);
+    margin-bottom: 0.5rem;
+  }
+  .itinerary-table thead tr { background: var(--navy); }
+  .itinerary-table thead th {
+    font-family: 'Nunito', sans-serif; font-size: 0.7rem; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7);
+    padding: 0.7rem 0.9rem; text-align: left;
+  }
+  .itinerary-table tbody tr {
+    border-bottom: 1px solid rgba(26,46,110,0.06);
+    transition: background 0.15s;
+  }
+  .itinerary-table tbody tr:hover { background: var(--sky); }
+  .itinerary-table tbody tr:last-child { border-bottom: none; }
+  .itinerary-table td { padding: 0.9rem; vertical-align: top; }
+  .td-time {
+    font-family: 'Fredoka One', sans-serif; font-size: 0.9rem;
+    color: var(--navy); white-space: nowrap;
+    background: var(--sky); border-left: 3px solid var(--yellow);
+  }
+  .td-dur {
+    font-size: 0.72rem; font-weight: 800; color: var(--text-muted);
+    white-space: nowrap; text-align: center;
+    background: rgba(26,46,110,0.02);
+  }
+  .td-activity { font-weight: 700; line-height: 1.5; color: var(--navy); }
+  .td-remark { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }
+  .remark-link {
+    display: inline-block; color: var(--navy-light);
+    font-size: 0.72rem; font-weight: 800;
+    text-decoration: none;
+    background: var(--sky); padding: 2px 8px; border-radius: 999px;
+    margin-top: 3px; margin-right: 3px;
+    border: 1.5px solid rgba(26,46,110,0.15);
+    transition: background 0.15s, color 0.15s;
+  }
+  .remark-link:hover { background: var(--yellow); color: var(--navy); border-color: var(--yellow); }
+  .activity-or {
+    font-size: 0.72rem; color: var(--text-muted); font-style: italic; margin-top: 4px;
+  }
+  .price-pill {
+    display: inline-block;
+    background: var(--yellow); color: var(--navy);
+    font-size: 0.75rem; font-weight: 800;
+    padding: 2px 10px; border-radius: 999px; margin-top: 3px;
+  }
+  .tag-optional {
+    display: inline-block;
+    background: rgba(26,46,110,0.08); color: var(--navy-light);
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 1px;
+    padding: 2px 7px; border-radius: 3px; text-transform: uppercase;
+    margin-left: 5px; vertical-align: middle;
+  }
+
+  /* ===== RULES ===== */
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+  .rule-card {
+    background: white; border-radius: 14px; padding: 1.3rem 1.4rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    box-shadow: 0 4px 16px rgba(26,46,110,0.1);
+    border: 2px solid transparent; transition: border-color 0.2s, transform 0.2s;
+  }
+  .rule-card:hover { border-color: var(--yellow); transform: translateY(-4px); }
+  .rule-num {
+    font-family: 'Fredoka One', sans-serif; font-size: 2.2rem;
+    color: var(--yellow); line-height: 1; flex-shrink: 0;
+    text-shadow: 2px 2px 0 var(--yellow-dark);
+  }
+  .rule-text { font-size: 0.9rem; font-weight: 700; color: var(--navy); line-height: 1.55; margin-top: 4px; }
+
+  /* ===== PACKING ===== */
+  .packing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 1.3rem; }
+  .pack-card {
+    background: white; border-radius: 14px; padding: 1.5rem;
+    box-shadow: 0 4px 20px var(--shadow); border-top: 5px solid var(--yellow);
+  }
+  .pack-title {
+    font-family: 'Fredoka One', sans-serif; font-size: 1.05rem;
+    color: var(--navy); margin-bottom: 0.9rem; display: flex; align-items: center; gap: 8px;
+  }
+  .pack-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .pack-list li {
+    font-size: 0.875rem; font-weight: 600;
+    color: var(--text-muted); display: flex; align-items: flex-start; gap: 8px;
+  }
+  .pack-list li::before { content: '●'; color: var(--yellow); flex-shrink: 0; font-size: 0.6rem; margin-top: 4px; }
+
+  /* ===== AIRBNB ===== */
+  .airbnb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .airbnb-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 24px var(--shadow); border: 2px solid transparent;
+    transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s; cursor: pointer;
+  }
+  .airbnb-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--yellow);
+    box-shadow: 0 14px 40px rgba(245,194,0,0.25);
+  }
+  .airbnb-thumb {
+    width: 100%; aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative; overflow: hidden;
+  }
+  .airbnb-thumb-overlay {
+    position: absolute; inset: 0;
+    background: rgba(26,46,110,0.7);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.2s;
+    font-family: 'Fredoka One', sans-serif; font-size: 1.1rem;
+    letter-spacing: 2px; color: white; text-transform: uppercase;
+  }
+  .airbnb-card:hover .airbnb-thumb-overlay { opacity: 1; }
+  .airbnb-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .airbnb-name {
+    font-family: 'Fredoka One', sans-serif; font-size: 1.2rem;
+    color: var(--navy); margin-bottom: 0.6rem;
+  }
+  .airbnb-meta { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.75rem; }
+  .meta-pill {
+    display: inline-flex; align-items: center; gap: 3px;
+    border-radius: 999px; padding: 3px 10px;
+    font-size: 0.72rem; font-weight: 800;
+  }
+  .meta-pill.price { background: var(--yellow); color: var(--navy); }
+  .meta-pill.rating { background: var(--navy); color: white; }
+  .meta-pill.cap { background: var(--sky); color: var(--navy-light); border: 1.5px solid rgba(26,46,110,0.1); }
+  .airbnb-amenities { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+  .amenity-tag {
+    font-size: 0.68rem; font-weight: 700; color: var(--navy-light);
+    background: var(--sky); border-radius: 5px; padding: 3px 7px;
+  }
+  .airbnb-link {
+    display: block; width: 100%;
+    background: var(--navy); color: white;
+    font-family: 'Fredoka One', sans-serif; font-size: 0.95rem; letter-spacing: 1px;
+    text-align: center; text-decoration: none;
+    padding: 0.65rem; border-radius: 8px;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .airbnb-link:hover { background: var(--navy-light); transform: scale(1.02); }
+
+  /* ===== MODAL ===== */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(15,29,80,0.8); z-index: 1000;
+    align-items: center; justify-content: center;
+    padding: 1.5rem; backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: white; border-radius: 20px;
+    max-width: 560px; width: 100%; overflow: hidden;
+    position: relative; animation: modalIn 0.25s ease;
+    box-shadow: 0 30px 80px rgba(15,29,80,0.4);
+  }
+  @keyframes modalIn { from { transform: scale(0.9) translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .modal-hero { width: 100%; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+  .modal-body { padding: 1.5rem 1.8rem 2rem; }
+  .modal-name { font-family: 'Fredoka One', sans-serif; font-size: 2rem; color: var(--navy); margin-bottom: 0.8rem; }
+  .modal-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .modal-amenities-title {
+    font-size: 0.7rem; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem;
+  }
+  .modal-amenities-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.3rem; }
+  .modal-actions { display: flex; gap: 0.75rem; }
+  .modal-btn {
+    flex: 1; padding: 0.8rem;
+    font-family: 'Fredoka One', sans-serif; font-size: 1rem; letter-spacing: 1px;
+    border-radius: 10px; border: none; cursor: pointer;
+    text-decoration: none; display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .modal-btn:hover { opacity: 0.88; transform: scale(1.02); }
+  .modal-btn.primary { background: var(--navy); color: white; }
+  .modal-btn.secondary { background: var(--sky); color: var(--navy); border: 2px solid rgba(26,46,110,0.15); }
+  .modal-close {
+    position: absolute; top: 12px; right: 14px;
+    background: rgba(255,255,255,0.9); border: 2px solid rgba(26,46,110,0.1);
+    border-radius: 50%; width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--navy); font-size: 0.9rem; font-weight: 900;
+    transition: background 0.15s;
+  }
+  .modal-close:hover { background: var(--yellow); }
+
+  /* ===== COUNTDOWN ===== */
+  .countdown-grid { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .countdown-unit { text-align: center; }
+  .countdown-num {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem); line-height: 1; color: var(--navy);
+    display: block; background: white; padding: 0.5rem 1.4rem;
+    border-radius: 14px; min-width: 110px;
+    box-shadow: 0 6px 0 var(--yellow-dark), 0 10px 30px rgba(26,46,110,0.12);
+    border: 3px solid var(--yellow);
+  }
+  .countdown-label {
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--navy); opacity: 0.7; margin-top: 0.75rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer { background: var(--navy-dark); padding: 3rem 1.5rem; text-align: center; }
+  .footer-logo {
+    font-family: 'Fredoka One', sans-serif; font-size: 2.2rem;
+    letter-spacing: 2px; color: var(--yellow);
+    text-shadow: 3px 3px 0 var(--yellow-dark); margin-bottom: 0.4rem;
+  }
+  .footer-sub {
+    font-size: 0.78rem; font-weight: 700;
+    color: rgba(255,255,255,0.3); letter-spacing: 2px; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-rays"></div>
+  <span class="sparkle">✦</span>
+  <span class="sparkle">✦</span>
+  <span class="sparkle">✦</span>
+  <span class="sparkle">✦</span>
+
+  <div class="hero-house">
+    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="80" cy="148" rx="55" ry="7" fill="rgba(245,194,0,0.2)"/>
+      <rect x="18" y="78" width="124" height="74" rx="4" fill="#F5C200"/>
+      <polygon points="8,80 80,18 152,80" fill="#1A2E6E"/>
+      <line x1="8" y1="80" x2="80" y2="18" stroke="white" stroke-width="2.5"/>
+      <line x1="80" y1="18" x2="152" y2="80" stroke="white" stroke-width="2.5"/>
+      <rect x="61" y="108" width="38" height="44" rx="3" fill="#1A2E6E"/>
+      <rect x="65" y="112" width="14" height="17" rx="2" fill="rgba(255,255,255,0.12)"/>
+      <rect x="81" y="112" width="14" height="17" rx="2" fill="rgba(255,255,255,0.12)"/>
+      <circle cx="80" cy="130" r="3" fill="rgba(255,255,255,0.4)"/>
+      <rect x="25" y="88" width="28" height="19" rx="3" fill="#1A2E6E"/>
+      <line x1="39" y1="88" x2="39" y2="107" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+      <line x1="25" y1="97" x2="53" y2="97" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+      <rect x="107" y="88" width="28" height="19" rx="3" fill="#1A2E6E"/>
+      <line x1="121" y1="88" x2="121" y2="107" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+      <line x1="107" y1="97" x2="135" y2="97" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+      <rect x="63" y="40" width="34" height="22" rx="3" fill="#F5C200" stroke="#1A2E6E" stroke-width="2"/>
+      <ellipse cx="80" cy="57" rx="24" ry="13" fill="#1A2E6E" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+      <text x="80" y="61" text-anchor="middle" font-family="sans-serif" font-size="7.5" fill="#F5C200" font-weight="900">Big Brother</text>
+      <text x="15" y="48" font-size="11" fill="#F5C200" opacity="0.9">✦</text>
+      <text x="130" y="38" font-size="15" fill="#F5C200" opacity="0.9">✦</text>
+      <text x="130" y="95" font-size="9" fill="rgba(255,255,255,0.4)">✦</text>
+    </svg>
+  </div>
+
+  <div class="rec-badge"><span class="rec-dot"></span> Live Na</div>
+  <div class="hero-eyebrow">Bahay ni Kuya Presents</div>
+  <h1 class="hero-title">Cool Pals</h1>
+  <p class="hero-sub">Ikaw ang bida ng aming bakasyon ✈️</p>
+  <div class="scroll-hint">Scroll<div class="scroll-arrow"></div></div>
+</div>
+
+<!-- TAPE -->
+<div class="tape tape-yellow">
+  <span class="tape-inner">
+    ★ COOL PALS BAKASYON ★ BAHAY NI KUYA ★ LIVE NA TAYO ★ HINDI KA NANDITO PARA MAGING KAIBIGAN ★ COOL PALS BAKASYON ★ BAHAY NI KUYA ★ LIVE NA TAYO ★ HINDI KA NANDITO PARA MAGING KAIBIGAN ★ COOL PALS BAKASYON ★ BAHAY NI KUYA ★&nbsp;
+  </span>
+</div>
+
+<!-- HOUSEMATES -->
+<div class="section-wrap bg-sky">
+<div class="section-inner">
+  <div class="section-label">Ang mga Housemate</div>
+  <h2 class="section-title">Mga Miyembro ng Bahay</h2>
+  <div class="housemates-grid">
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF5CC;"><span class="cam-tag">CAM 1</span>👑</div><div class="housemate-info"><div class="housemate-name">AC</div><div class="housemate-role">The Leader</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8F0FF;"><span class="cam-tag">CAM 2</span>😂</div><div class="housemate-info"><div class="housemate-name">CJ</div><div class="housemate-role">The Comedian</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8FFF0;"><span class="cam-tag">CAM 3</span>📸</div><div class="housemate-info"><div class="housemate-name">Frenzie</div><div class="housemate-role">The Photographer</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF0F5;"><span class="cam-tag">CAM 4</span>🌸</div><div class="housemate-info"><div class="housemate-name">Hazel</div><div class="housemate-role">The Sunshine</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF5E8;"><span class="cam-tag">CAM 5</span>🗺️</div><div class="housemate-info"><div class="housemate-name">Ino</div><div class="housemate-role">The Navigator</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8FFFC;"><span class="cam-tag">CAM 6</span>🎵</div><div class="housemate-info"><div class="housemate-name">JJ</div><div class="housemate-role">The Hype Person</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#F5E8FF;"><span class="cam-tag">CAM 7</span>✨</div><div class="housemate-info"><div class="housemate-name">Jhianne</div><div class="housemate-role">The Charmer</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#EAFFF5;"><span class="cam-tag">CAM 8</span>🍳</div><div class="housemate-info"><div class="housemate-name">Justine</div><div class="housemate-role">The Chef</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF0FB;"><span class="cam-tag">CAM 9</span>💅</div><div class="housemate-info"><div class="housemate-name">Khyla</div><div class="housemate-role">The Fashionista</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFE8E8;"><span class="cam-tag">CAM 10</span>🎤</div><div class="housemate-info"><div class="housemate-name">Kyra</div><div class="housemate-role">The Performer</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8F4FF;"><span class="cam-tag">CAM 11</span>🧠</div><div class="housemate-info"><div class="housemate-name">Min</div><div class="housemate-role">The Mastermind</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFFBCC;"><span class="cam-tag">CAM 12</span>🌻</div><div class="housemate-info"><div class="housemate-name">Pam</div><div class="housemate-role">The Peacemaker</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#EDFFF0;"><span class="cam-tag">CAM 13</span>🏃</div><div class="housemate-info"><div class="housemate-name">Pat</div><div class="housemate-role">The Adventurer</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF0E8;"><span class="cam-tag">CAM 14</span>🎸</div><div class="housemate-info"><div class="housemate-name">Raffy</div><div class="housemate-role">The Rockstar</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#EEE8FF;"><span class="cam-tag">CAM 15</span>🕵️</div><div class="housemate-info"><div class="housemate-name">CJR</div><div class="housemate-role">The Wild Card</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF8E8;"><span class="cam-tag">CAM 16</span>🏆</div><div class="housemate-info"><div class="housemate-name">Kirby</div><div class="housemate-role">The Champion</div></div></div>
+  </div>
+</div>
+</div>
+
+<!-- TAPE -->
+<div class="tape tape-navy">
+  <span class="tape-inner">
+    ★ ITINERARY ★ SCHEDULE NG BAHAY ★ MISSION ALERT ★ TASKMASTER ★ ITINERARY ★ SCHEDULE NG BAHAY ★ MISSION ALERT ★ TASKMASTER ★ ITINERARY ★ SCHEDULE NG BAHAY ★ MISSION ALERT ★ TASKMASTER ★&nbsp;
+  </span>
+</div>
+
+<!-- ITINERARY -->
+<div class="section-wrap bg-cream">
+<div class="section-inner">
+  <div class="section-label">Ang Programa</div>
+  <h2 class="section-title">Itinerary ng Grupo</h2>
+
+  <div class="day-header">🌙 Saturday — Pico De Loro Day 1</div>
+  <table class="itinerary-table">
+    <thead><tr><th>Start</th><th>End</th><th style="text-align:center">Duration</th><th>Activity</th><th>Remarks</th></tr></thead>
+    <tbody>
+      <tr><td class="td-time">10:00 AM</td><td class="td-time">1:00 PM</td><td class="td-dur">3 hrs</td><td class="td-activity">🚗 Travel from Manila to Pico De Loro</td><td class="td-remark">—</td></tr>
+      <tr><td class="td-time">1:00 PM</td><td class="td-time">2:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🍽 Lunch at one of the restaurants in the resort</td><td class="td-remark"><a href="#" class="remark-link">🗺 Resort Map</a> <a href="#" class="remark-link">🏄 Water Activities</a></td></tr>
+      <tr><td class="td-time">2:00 PM</td><td class="td-time">2:30 PM</td><td class="td-dur">30 min</td><td class="td-activity">🏠 Check in and chill in the Airbnb</td><td class="td-remark"><span class="price-pill">₱1,400 / person</span></td></tr>
+      <tr><td class="td-time">2:30 PM</td><td class="td-time">5:00 PM</td><td class="td-dur">2.5 hrs</td><td class="td-activity">🏖 Stroll around the resort and swim</td><td class="td-remark"><a href="#" class="remark-link">🗺 Resort Map</a> <a href="#" class="remark-link">🏄 Water Activities</a></td></tr>
+      <tr><td class="td-time">5:00 PM</td><td class="td-time">6:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🌅 Chill and watch the sunset by the beach</td><td class="td-remark">—</td></tr>
+      <tr><td class="td-time">6:00 PM</td><td class="td-time">7:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🚿 Shower</td><td class="td-remark">—</td></tr>
+      <tr><td class="td-time">7:00 PM</td><td class="td-time">8:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🍜 Dinner at one of the restaurants in the resort<div class="activity-or">or cook and eat dinner at the Airbnb</div></td><td class="td-remark"><a href="#" class="remark-link">🍽 Resort Restaurants</a></td></tr>
+      <tr><td class="td-time">8:00 PM</td><td class="td-time">10:00 PM</td><td class="td-dur">2 hrs</td><td class="td-activity">🎱 Indoor resort activities</td><td class="td-remark"><a href="#" class="remark-link">🎮 Indoor Activities</a></td></tr>
+      <tr><td class="td-time">10:00 PM</td><td class="td-time">—</td><td class="td-dur">—</td><td class="td-activity">😴 Chill in the Airbnb</td><td class="td-remark">—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="day-header" style="margin-top:2.5rem">☀️ Sunday — Pico De Loro Day 2</div>
+  <table class="itinerary-table">
+    <thead><tr><th>Start</th><th>End</th><th style="text-align:center">Duration</th><th>Activity</th><th>Remarks</th></tr></thead>
+    <tbody>
+      <tr><td class="td-time">7:00 AM</td><td class="td-time">9:30 AM</td><td class="td-dur">1.5 hrs</td><td class="td-activity">🏊 Stroll around the resort and swim</td><td class="td-remark"><a href="#" class="remark-link">🗺 Resort Map</a> <a href="#" class="remark-link">🏄 Water Activities</a></td></tr>
+      <tr><td class="td-time">8:00 AM</td><td class="td-time">9:30 AM</td><td class="td-dur">1.5 hrs</td><td class="td-activity">🍳 Cook and eat breakfast at the Airbnb</td><td class="td-remark">Option to hike before breakfast <span class="tag-optional">Optional</span><br><span class="price-pill">₱2,250 / group</span></td></tr>
+      <tr><td class="td-time">9:30 AM</td><td class="td-time">10:30 AM</td><td class="td-dur">1 hr</td><td class="td-activity">🚿 Shower at the Airbnb</td><td class="td-remark"><a href="#" class="remark-link">🗺 Resort Map</a></td></tr>
+      <tr><td class="td-time">10:30 AM</td><td class="td-time">11:00 AM</td><td class="td-dur">30 min</td><td class="td-activity">🧳 Check out at the Airbnb</td><td class="td-remark">—</td></tr>
+      <tr><td class="td-time">11:00 AM</td><td class="td-time">12:00 PM</td><td class="td-dur">1 hr</td><td class="td-activity">🍜 Lunch at Pendong by Rance</td><td class="td-remark"><a href="#" class="remark-link">📱 TikTok Preview</a> <a href="#" class="remark-link">📋 Menu</a></td></tr>
+      <tr><td class="td-time">12:00 PM</td><td class="td-time">3:00 PM</td><td class="td-dur">3 hrs</td><td class="td-activity">🚗 Travel from Nasugbu to Manila</td><td class="td-remark">—</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- HOUSE RULES -->
+<div class="section-wrap bg-navy">
+<div class="section-inner">
+  <div class="section-label light">Utos ni Kuya</div>
+  <h2 class="section-title yellow">Mga Alituntunin ng Bahay</h2>
+  <div class="rules-grid">
+    <div class="rule-card"><div class="rule-num">01</div><div class="rule-text">Walang naiiwanan. Sama-sama tayong mag-aalis at babalik. Barkada muna, lagi.</div></div>
+    <div class="rule-card"><div class="rule-num">02</div><div class="rule-text">Wala sa trip ang drama. Good vibes lang sa loob ng Bahay ni Kuya.</div></div>
+    <div class="rule-card"><div class="rule-num">03</div><div class="rule-text">Mag-document ng lahat — photos, videos, reels. Ito ang ating alaala.</div></div>
+    <div class="rule-card"><div class="rule-num">04</div><div class="rule-text">Ang gastos ay pantay-pantay. Walang utang na loob sa bakasyon.</div></div>
+    <div class="rule-card"><div class="rule-num">05</div><div class="rule-text">Lahat ay may responsibilidad. Magtulong-tulong sa luto, linis, at buwis-buhay na adventures.</div></div>
+    <div class="rule-card"><div class="rule-num">06</div><div class="rule-text">Handa palagi. Ang late-comer ay may kaparusahan mula kay Kuya.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- PACKING -->
+<div class="section-wrap bg-white">
+<div class="section-inner">
+  <div class="section-label">Mga Dala-Dalhin</div>
+  <h2 class="section-title">Packing List ng Grupo</h2>
+  <div class="packing-grid">
+    <div class="pack-card"><div class="pack-title">👕 Damit &amp; Personal</div><ul class="pack-list"><li>Damit para sa bawat araw + isa pang panukli</li><li>Damit pangpaligo / tapis</li><li>Sapatos at tsinelas</li><li>Toothbrush, toothpaste, shampoo</li><li>Deodorant at pabango</li><li>Gamot / maintenance meds</li></ul></div>
+    <div class="pack-card"><div class="pack-title">🏖️ Adventure Essentials</div><ul class="pack-list"><li>Sunscreen SPF 50+</li><li>Damit pangpalangoy at towel</li><li>Slippers / sandals na waterproof</li><li>Insect repellent</li><li>First aid kit ng grupo</li><li>Payong o raincoat</li></ul></div>
+    <div class="pack-card"><div class="pack-title">📱 Tech &amp; Gadgets</div><ul class="pack-list"><li>Powerbank (malaki)</li><li>Camera o phone na may magandang cam</li><li>Charging cables ng lahat</li><li>Earphones / speaker para sa musika</li><li>Portable WiFi (optional)</li><li>Action cam o GoPro (kung meron)</li></ul></div>
+    <div class="pack-card"><div class="pack-title">🍕 Baon &amp; Merienda</div><ul class="pack-list"><li>Chips at junk food para road trip</li><li>Bottled water — marami</li><li>Instant noodles bilang pang-emergency</li><li>Alcohol at hand sanitizer</li><li>Lason para sa masamang vibes</li><li>Pasalubong budget!</li></ul></div>
+  </div>
+</div>
+</div>
+
+<!-- TAPE -->
+<div class="tape tape-white">
+  <span class="tape-inner">🏡 AIRBNB OPTIONS 🏡 PILI NA 🏡 SAAN TAYO MATUTULOG 🏡 BOOK NA 🏡 AIRBNB OPTIONS 🏡 PILI NA 🏡 SAAN TAYO MATUTULOG 🏡 BOOK NA 🏡&nbsp;</span>
+</div>
+
+<!-- AIRBNB -->
+<div class="section-wrap bg-sky">
+<div class="section-inner">
+  <div class="section-label">Tirahan ng Grupo</div>
+  <h2 class="section-title">Airbnb Options</h2>
+  <div class="airbnb-grid" id="airbnb-grid"></div>
+</div>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="section-wrap bg-yellow" style="text-align:center;">
+<div class="section-inner">
+  <div class="section-label" style="justify-content:center;">Bilang na ang Oras</div>
+  <h2 class="section-title" style="margin-bottom:2.5rem;">Countdown Hanggang Bakasyon 🎉</h2>
+  <div class="countdown-grid">
+    <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><div class="countdown-label">Araw</div></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><div class="countdown-label">Oras</div></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><div class="countdown-label">Minuto</div></div>
+    <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><div class="countdown-label">Segundo</div></div>
+  </div>
+  <p style="margin-top:1.8rem;font-size:0.82rem;font-weight:700;color:var(--navy-dark);opacity:0.5;letter-spacing:1px;">— I-update ang target date sa code —</p>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Cool Pals 🏠</div>
+  <div class="footer-sub">Bahay ni Kuya Edition · Lagi tayong magkasama</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div class="modal-hero" id="modal-hero"></div>
+    <div class="modal-body">
+      <div class="modal-name" id="modal-name"></div>
+      <div class="modal-meta" id="modal-meta"></div>
+      <div><div class="modal-amenities-title">Amenities</div><div class="modal-amenities-list" id="modal-amenities"></div></div>
+      <div class="modal-actions">
+        <a href="#" class="modal-btn primary" id="modal-link" target="_blank" rel="noopener">View on Airbnb ↗</a>
+        <button class="modal-btn secondary" onclick="closeModalBtn()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const airbnbs = [
+  {id:1, name:"Santorini",      price:6312, rating:4.8, capacity:10, emoji:"🏛️", bg:"#E8F0FF", amenities:["Pool","WiFi","AC","Kitchen","Parking","Sea View"],           url:"https://www.airbnb.com"},
+  {id:2, name:"Luxurious",      price:6173, rating:4.9, capacity:12, emoji:"💎", bg:"#FFF8E0", amenities:["Private Pool","WiFi","AC","Full Kitchen","BBQ","Garden"],     url:"https://www.airbnb.com"},
+  {id:3, name:"Modern",         price:4632, rating:4.7, capacity:8,  emoji:"🏠", bg:"#F0F0FF", amenities:["Pool","WiFi","AC","Kitchen","Smart TV"],                     url:"https://www.airbnb.com"},
+  {id:4, name:"Carola",         price:4865, rating:4.6, capacity:10, emoji:"🌴", bg:"#E8FFF0", amenities:["Pool","WiFi","AC","Kitchen","Beach Access"],                  url:"https://www.airbnb.com"},
+  {id:5, name:"Mountain",       price:4326, rating:4.5, capacity:8,  emoji:"⛰️", bg:"#F0F8FF", amenities:["WiFi","AC","Kitchen","Mountain View","Hiking"],              url:"https://www.airbnb.com"},
+  {id:6, name:"Yayo",           price:4633, rating:4.7, capacity:9,  emoji:"🌺", bg:"#FFF0F8", amenities:["Pool","WiFi","AC","Kitchen","Garden"],                       url:"https://www.airbnb.com"},
+  {id:7, name:"Large",          price:4170, rating:4.4, capacity:16, emoji:"🏡", bg:"#F0FFF4", amenities:["Pool","WiFi","AC","Large Kitchen","Multiple Rooms","Parking"],url:"https://www.airbnb.com"},
+  {id:8, name:"Mountain Suite", price:5900, rating:4.8, capacity:10, emoji:"🗻", bg:"#EEF4FF", amenities:["WiFi","AC","Kitchen","Suite Rooms","Scenic View","Parking"],  url:"https://www.airbnb.com"},
+  {id:9, name:"Miranda 319",    price:6602, rating:4.9, capacity:12, emoji:"🌊", bg:"#E8F8FF", amenities:["Pool","WiFi","AC","Full Kitchen","Sea View","Balcony"],       url:"https://www.airbnb.com"},
+  {id:10,name:"Other Miranda",  price:6254, rating:4.8, capacity:10, emoji:"🏖️", bg:"#FFFBEE", amenities:["Pool","WiFi","AC","Kitchen","Beach View","Parking"],         url:"https://www.airbnb.com"},
+  {id:11,name:"Sea You",        price:6009, rating:4.7, capacity:10, emoji:"🐚", bg:"#EEFFFC", amenities:["Pool","WiFi","AC","Kitchen","Ocean View","BBQ"],              url:"https://www.airbnb.com"},
+  {id:12,name:"Miranda A",      price:5502, rating:4.6, capacity:10, emoji:"🌅", bg:"#FFF5EE", amenities:["Pool","WiFi","AC","Kitchen","Sunset View"],                   url:"https://www.airbnb.com"},
+];
+
+function buildCards(){
+  const grid=document.getElementById('airbnb-grid');
+  airbnbs.forEach(a=>{
+    const card=document.createElement('div');
+    card.className='airbnb-card';
+    card.innerHTML=`
+      <div class="airbnb-thumb" style="background:${a.bg}" onclick="openModal(${a.id})">
+        ${a.emoji}
+        <div class="airbnb-thumb-overlay">View Details</div>
+      </div>
+      <div class="airbnb-body">
+        <div class="airbnb-name">${a.name}</div>
+        <div class="airbnb-meta">
+          <span class="meta-pill price">₱${a.price.toLocaleString()} / night</span>
+          <span class="meta-pill rating">★ ${a.rating}</span>
+          <span class="meta-pill cap">👥 Up to ${a.capacity}</span>
+        </div>
+        <div class="airbnb-amenities">
+          ${a.amenities.slice(0,4).map(x=>`<span class="amenity-tag">${x}</span>`).join('')}
+          ${a.amenities.length>4?`<span class="amenity-tag">+${a.amenities.length-4} more</span>`:''}
+        </div>
+        <a href="${a.url}" target="_blank" rel="noopener" class="airbnb-link">View on Airbnb ↗</a>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function openModal(id){
+  const a=airbnbs.find(x=>x.id===id); if(!a) return;
+  const mh=document.getElementById('modal-hero');
+  mh.style.background=a.bg; mh.textContent=a.emoji; mh.style.fontSize='5rem';
+  document.getElementById('modal-name').textContent=a.name;
+  document.getElementById('modal-meta').innerHTML=`
+    <span class="meta-pill price">₱${a.price.toLocaleString()} / night</span>
+    <span class="meta-pill rating">★ ${a.rating}</span>
+    <span class="meta-pill cap">👥 Up to ${a.capacity} guests</span>`;
+  document.getElementById('modal-amenities').innerHTML=a.amenities.map(x=>`<span class="amenity-tag">${x}</span>`).join('');
+  document.getElementById('modal-link').href=a.url;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModalBtn(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModal(e){
+  if(e.target===document.getElementById('modal-overlay')) closeModalBtn();
+}
+buildCards();
+
+const tripDate=new Date('2025-12-25T08:00:00');
+function updateCountdown(){
+  const diff=tripDate-new Date();
+  if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
+  document.getElementById('cd-days').textContent=String(Math.floor(diff/(1000*60*60*24))).padStart(2,'0');
+  document.getElementById('cd-hours').textContent=String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
