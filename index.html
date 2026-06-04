@@ -636,8 +636,8 @@
 <!-- COUNTDOWN -->
 <div class="section-wrap bg-yellow" style="text-align:center;">
 <div class="section-inner">
-  <div class="section-label" style="justify-content:center;">Bilang na ang Oras</div>
-  <h2 class="section-title" style="margin-bottom:2.5rem;">Countdown Hanggang Bakasyon 🎉</h2>
+  <div class="section-label" style="justify-content:center;">Few More Days to Go-Go-GO!</div>
+  <h2 class="section-title" style="margin-bottom:2.5rem;">Countdown Until Vacation 🎉</h2>
   <div class="countdown-grid">
     <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><div class="countdown-label">Araw</div></div>
     <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><div class="countdown-label">Oras</div></div>
@@ -650,8 +650,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Cool Pals 🏠</div>
-  <div class="footer-sub">Bahay ni Kuya Edition · Lagi tayong magkasama</div>
+  <div class="footer-logo">Cool Pals: Beach Edition🏠</div>
+  <div class="footer-sub"> Walang eviction, puro vacation! 🏖️</div>
 </footer>
 
 <!-- MODAL -->
@@ -737,7 +737,7 @@ function closeModal(e){
 }
 buildCards();
 
-const tripDate=new Date('2025-12-25T08:00:00');
+const tripDate=new Date('2026-07-10T10:00:00');
 function updateCountdown(){
   const diff=tripDate-new Date();
   if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
