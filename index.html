@@ -97,7 +97,7 @@
 
   .hero-title {
     font-family: 'Fredoka One', sans-serif;
-    font-size: clamp(4rem, 14vw, 10rem);
+    font-size: clamp(2.8rem, 14vw, 10rem);
     line-height: 0.88;
     color: var(--yellow);
     position: relative; z-index: 2;
@@ -200,11 +200,16 @@
     border-color: var(--yellow);
     box-shadow: 0 12px 32px rgba(245,194,0,0.3);
   }
-  .housemate-avatar {
-    width: 100%; aspect-ratio: 1;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3.2rem; position: relative;
-  }
+  .housemate-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.housemate-card:hover .housemate-avatar img {
+    transform: scale(1.08);
+}
   .housemate-info {
     padding: 0.7rem 0.9rem 0.9rem; background: white;
     border-top: 3px solid var(--yellow);
@@ -512,22 +517,22 @@
 <div class="section-inner">
   <h2 class="section-title">Housemates</h2>
   <div class="housemates-grid">
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF5CC;"><span class="cam-tag">CAM 1</span>👑</div><div class="housemate-info"><div class="housemate-name">AC</div><div class="housemate-role">The Leader</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8F0FF;"><span class="cam-tag">CAM 2</span>😂</div><div class="housemate-info"><div class="housemate-name">CJ</div><div class="housemate-role">The Comedian</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8FFF0;"><span class="cam-tag">CAM 3</span>📸</div><div class="housemate-info"><div class="housemate-name">Frenzie</div><div class="housemate-role">The Photographer</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF0F5;"><span class="cam-tag">CAM 4</span>🌸</div><div class="housemate-info"><div class="housemate-name">Hazel</div><div class="housemate-role">The Sunshine</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF5E8;"><span class="cam-tag">CAM 5</span>🗺️</div><div class="housemate-info"><div class="housemate-name">Ino</div><div class="housemate-role">The Navigator</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8FFFC;"><span class="cam-tag">CAM 6</span>🎵</div><div class="housemate-info"><div class="housemate-name">JJ</div><div class="housemate-role">The Hype Person</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#F5E8FF;"><span class="cam-tag">CAM 7</span>✨</div><div class="housemate-info"><div class="housemate-name">Jhianne</div><div class="housemate-role">The Charmer</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#EAFFF5;"><span class="cam-tag">CAM 8</span>🍳</div><div class="housemate-info"><div class="housemate-name">Justine</div><div class="housemate-role">The Chef</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF0FB;"><span class="cam-tag">CAM 9</span>💅</div><div class="housemate-info"><div class="housemate-name">Khyla</div><div class="housemate-role">The Fashionista</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFE8E8;"><span class="cam-tag">CAM 10</span>🎤</div><div class="housemate-info"><div class="housemate-name">Kyra</div><div class="housemate-role">The Performer</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#E8F4FF;"><span class="cam-tag">CAM 11</span>🧠</div><div class="housemate-info"><div class="housemate-name">Min</div><div class="housemate-role">The Mastermind</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFFBCC;"><span class="cam-tag">CAM 12</span>🌻</div><div class="housemate-info"><div class="housemate-name">Pam</div><div class="housemate-role">The Peacemaker</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#EDFFF0;"><span class="cam-tag">CAM 13</span>🏃</div><div class="housemate-info"><div class="housemate-name">Pat</div><div class="housemate-role">The Adventurer</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF0E8;"><span class="cam-tag">CAM 14</span>🎸</div><div class="housemate-info"><div class="housemate-name">Raffy</div><div class="housemate-role">The Rockstar</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#EEE8FF;"><span class="cam-tag">CAM 15</span>🕵️</div><div class="housemate-info"><div class="housemate-name">CJR</div><div class="housemate-role">The Wild Card</div></div></div>
-    <div class="housemate-card"><div class="housemate-avatar" style="background:#FFF8E8;"><span class="cam-tag">CAM 16</span>🏆</div><div class="housemate-info"><div class="housemate-name">Kirby</div><div class="housemate-role">The Champion</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 1</span><img src="images/ac.jpg" alt="AC"></div><div class="housemate-info"><div class="housemate-name">AC</div><div class="housemate-role">The Leader</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 2</span><img src="images/cjc.jpg" alt="CJC"></div><div class="housemate-info"><div class="housemate-name">CJC</div><div class="housemate-role">The Comedian</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 3</span><img src="images/cjr.jpg" alt="CJR"></div><div class="housemate-info"><div class="housemate-name">CJR</div><div class="housemate-role">The Wild Card</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 4</span><img src="images/frenzie.jpg" alt="FRENZIE"></div><div class="housemate-info"><div class="housemate-name">Frenzie</div><div class="housemate-role">The Photographer</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 5</span><img src="images/hazel.jpg" alt="HAZEL"></div><div class="housemate-info"><div class="housemate-name">Hazel</div><div class="housemate-role">The Sunshine</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 6</span><img src="images/ino.jpg" alt="INO"></div><div class="housemate-info"><div class="housemate-name">Ino</div><div class="housemate-role">The Navigator</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 7</span><img src="images/jj.jpg" alt="JJ"></div><div class="housemate-info"><div class="housemate-name">JJ</div><div class="housemate-role">The Hype Person</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 8</span><img src="images/jhi.jpg" alt="JHI"></div><div class="housemate-info"><div class="housemate-name">Jhianne</div><div class="housemate-role">The Charmer</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 9</span><img src="images/justine.jpg" alt="JUSTINE"></div><div class="housemate-info"><div class="housemate-name">Justine</div><div class="housemate-role">The Chef</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 10</span><img src="images/khyla.jpg" alt="KHYLA"></div><div class="housemate-info"><div class="housemate-name">Khyla</div><div class="housemate-role">The Fashionista</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 11</span><img src="images/kirby.jpg" alt="KIRBY"></div><div class="housemate-info"><div class="housemate-name">Kirby</div><div class="housemate-role">The Champion</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 12</span><img src="images/kyra.jpg" alt="KYRA"></div><div class="housemate-info"><div class="housemate-name">Kyra</div><div class="housemate-role">The Performer</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 13</span><img src="images/min.jpg" alt="MIN"></div><div class="housemate-info"><div class="housemate-name">Min</div><div class="housemate-role">The Mastermind</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 14</span><img src="images/pam.jpg" alt="PAM"></div><div class="housemate-info"><div class="housemate-name">Pam</div><div class="housemate-role">The Peacemaker</div></div></div>
+    <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 15</span><img src="images/pat.jpg" alt="PAT"></div><div class="housemate-info"><div class="housemate-name">Pat</div><div class="housemate-role">The Adventurer</div></div></div>
+   <div class="housemate-card"><div class="housemate-avatar"><span class="cam-tag">CAM 16</span><img src="images/raffy.jpg" alt="RAFFY"></div><div class="housemate-info"><div class="housemate-name">Raffy</div><div class="housemate-role">The Rockstar</div></div></div>
   </div>
 </div>
 </div>
