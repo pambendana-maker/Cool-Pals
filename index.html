@@ -750,7 +750,7 @@ function closeModal(e){
 }
 buildCards();
 
-const tripDate=new Date('2026-07-10T10:00:00');
+const tripDate=new Date('2026-08-21T10:00:00');
 function updateCountdown(){
   const diff=tripDate-new Date();
   if(diff<=0){['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id=>document.getElementById(id).textContent='00');return;}
